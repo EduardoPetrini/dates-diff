@@ -1,4 +1,3 @@
-
 'use client';
 
 import Start from './components/start';
@@ -7,19 +6,18 @@ import Result from './components/result';
 import { useState } from 'react';
 
 export default function Main() {
-  const [start, setStart] = useState<string>();
-  const [end, setEnd] = useState<string>();
-  
+  const [start, setStart] = useState<string>('');
+  const [end, setEnd] = useState<string>('');
+
   return (
     <main className="flex flex-col items-center justify-between p-24">
-      <div className="input-container flex justify-between w-2/6">
-        <Start updateStart={setStart}/>
-        <End updateEnd={setEnd}/>
+      <div className="input-container block w-3/6 lg:flex lg:justify-between">
+        <Start updateStart={setStart} />
+        <End updateEnd={setEnd} />
       </div>
       <div className="output-container">
-        <Result start={start} end={end}/>
+        <Result start={start} end={end} />
       </div>
     </main>
   );
 }
-

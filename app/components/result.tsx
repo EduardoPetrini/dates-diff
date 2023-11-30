@@ -100,6 +100,8 @@ export default function Result({ start, end }: ResultProps) {
     let y = Math.round(mo / 12);
     text = `${y}y:` + text;
     setResult(text);
+
+    return () => setResult('Result')
   }, [start, end]);
 
   return (

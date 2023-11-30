@@ -5,7 +5,7 @@ declare type EndProps = {
 };
 
 export default function End({ updateEnd }: EndProps) {
-  const [end, setEnd] = useState<string>();
+  const [end, setEnd] = useState<string>('');
 
   const changed = (value: string) => {
     setEnd(value);
