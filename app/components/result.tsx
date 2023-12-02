@@ -1,6 +1,7 @@
 import { padIndexTwo } from '@/lib/helpers';
 import { useEffect, useState } from 'react';
 import { IconCopy } from './ui/icons';
+import Copied from './ui/copied';
 
 declare type ResultProps = {
   start: string | undefined;
@@ -109,7 +110,6 @@ export default function Result({ start, end }: ResultProps) {
   }, [start, end]);
 
   return (
-    <>
     <div className="flex p-10 gap-5">
       <label htmlFor="domain" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
       <span className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{result}</span>
@@ -126,8 +126,7 @@ export default function Result({ start, end }: ResultProps) {
       >
         <IconCopy />
       </button>
+      <Copied isCopied={copied} />
     </div>
-    <div className="">{copied ? <small className="m-40 text-green-700">copied!</small> : null}</div>
-    </>
   );
 }
