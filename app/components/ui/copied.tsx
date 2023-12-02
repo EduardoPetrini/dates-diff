@@ -1,12 +1,14 @@
-import { useEffect } from 'react'
+import { useEffect } from 'react';
 
 declare type CopiedProps = {
-  isCopied: boolean
-}
+  isCopied: boolean;
+};
 
-export default function Copied({isCopied}:CopiedProps) {
-  
-  return (
-    isCopied ? <div className="absolute bottom-0 right-0 p-10 bg-gray-800"> <small className="text-green-700">copied!</small> </div>: (null)
-  )
+export default function Copied({ isCopied }: CopiedProps) {
+  return isCopied ? (
+    <div className="rounded absolute bottom-1 right-1 p-4 pl-10 pr-10 bg-gray-800">
+      {' '}
+      <small className="text-green-700">copied!</small>{' '}
+    </div>
+  ) : null;
 }
