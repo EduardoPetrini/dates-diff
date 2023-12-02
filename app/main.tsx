@@ -15,7 +15,7 @@ export default function Main() {
         <Start updateStart={setStart} />
         <End updateEnd={setEnd} />
       </div>
-      <div className="output-container">
+      <div className="output-container w-3/6 lg:flex lg:justify-center ">
         <Result start={start} end={end} />
       </div>
     </main>

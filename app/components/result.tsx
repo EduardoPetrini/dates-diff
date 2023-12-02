@@ -110,11 +110,11 @@ export default function Result({ start, end }: ResultProps) {
   }, [start, end]);
 
   return (
-    <div className="flex p-10 gap-5">
+    <div className="flex mt-10">
       <label htmlFor="domain" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
-      <span className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{result}</span>
+      <span className="min-w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">{result}</span>
       <button
-        className="mr-2"
+        className="ml-4"
         onClick={e => {
           e.preventDefault();
           navigator.clipboard.writeText(result).then(() => {
