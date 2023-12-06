@@ -1,16 +1,29 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 declare type StartProps = {
   updateStart: (start: string) => void;
+  clear: boolean;
 };
 
-export default function Start({ updateStart }: StartProps) {
+export default function Start({ updateStart, clear }: StartProps) {
   const [start, setStart] = useState('');
 
   const changed = (value: string) => {
     setStart(value);
     updateStart(value);
   };
+
+  useEffect(() => {
+    if (clear) {
+      setStart('');
+      updateStart('');
+    }
+
+    return () => {
+      setStart('');
+      updateStart('');
+    };
+  }, [clear, setStart, updateStart]);
 
   return (
     <div className="input-field">

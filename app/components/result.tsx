@@ -6,12 +6,23 @@ import Copied from './ui/copied';
 declare type ResultProps = {
   start: string | undefined;
   end: string | undefined;
+  clear: boolean;
 };
 
-export default function Result({ start, end }: ResultProps) {
+export default function Result({ start, end, clear }: ResultProps) {
   const [result, setResult] = useState('Result');
 
   const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (clear) {
+      setResult('Result');
+    }
+
+    return () => {
+      setResult('Result');
+    };
+  }, [clear, setResult]);
 
   useEffect(() => {
     if (!start || !end) {

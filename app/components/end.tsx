@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 declare type EndProps = {
   updateEnd: (end: string) => void;
+  clear: boolean;
 };
 
-export default function End({ updateEnd }: EndProps) {
+export default function End({ updateEnd, clear }: EndProps) {
   const [end, setEnd] = useState<string>('');
 
   const changed = (value: string) => {
@@ -12,6 +13,17 @@ export default function End({ updateEnd }: EndProps) {
     updateEnd(value);
   };
 
+  useEffect(() => {
+    if (clear) {
+      setEnd('');
+      updateEnd('');
+    }
+
+    return () => {
+      setEnd('');
+      updateEnd('');
+    };
+  }, [clear, setEnd, updateEnd]);
   return (
     <div className="input-field">
       <form autoComplete="off">
