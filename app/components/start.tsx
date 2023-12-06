@@ -9,8 +9,8 @@ export default function Start({ updateStart, clear }: StartProps) {
   const [start, setStart] = useState('');
 
   const changed = (value: string) => {
-    setStart(value);
-    updateStart(value);
+    setStart(value.trim());
+    updateStart(value.trim());
   };
 
   useEffect(() => {

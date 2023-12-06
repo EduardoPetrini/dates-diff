@@ -9,8 +9,8 @@ export default function End({ updateEnd, clear }: EndProps) {
   const [end, setEnd] = useState<string>('');
 
   const changed = (value: string) => {
-    setEnd(value);
-    updateEnd(value);
+    setEnd(value.trim());
+    updateEnd(value.trim());
   };
 
   useEffect(() => {
